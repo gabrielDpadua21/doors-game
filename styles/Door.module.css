@@ -1,0 +1,71 @@
+.area {
+    display: flex;
+    width: var(--area-door-width);
+    height: var(--area-door-height);
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+    position: relative;
+}
+
+.frame {
+    display: flex;
+    flex-grow: 1;
+    border-left: 5px solid brown;
+    border-top: 5px solid brown;
+    border-right: 5px solid brown;
+    width: 90%;
+}
+
+.door {
+    display: flex;
+    flex-direction: column;
+    background-color: chocolate;
+    align-items: center;
+    padding: 15px;
+    flex-grow: 1;
+}
+
+.number {
+    font-size: 3rem;
+}
+
+.floor {
+    height: 10px;
+    width: 100%;
+    background-color: #ddd;
+}
+
+.key {
+    height: 40px;
+    width: 30px;
+    border-radius: 3px;
+    background-color: brown;
+    position: absolute;
+    align-self: flex-start;
+    top: calc(0.45 * var(--area-door-height))
+}
+
+.handle {
+    width: 50px;
+    height: 12px;
+    border-radius: 3px;
+    background-color: brown;
+    position: absolute;
+    align-self: flex-start;
+    top: calc(0.50 * var(--area-door-height));
+}
+
+.selected {
+    border-left: 5px solid yellow;
+    border-top: 5px solid yellow;
+    border-right: 5px solid yellow;
+}
+
+.selected .number {
+    color: yellow
+}
+
+.selected .handle {
+    transform: rotate(4deg);
+}
