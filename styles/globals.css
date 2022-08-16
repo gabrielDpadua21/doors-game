@@ -21,3 +21,7 @@ a {
   --area-door-height: 310px;
   --area-door-width: 200px;
 }
+
+.flex {
+  display: flex;
+}

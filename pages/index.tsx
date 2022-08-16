@@ -6,8 +6,10 @@ const Home: NextPage = () => {
   return (
     <>
       {/* <Present/> */}
-      <Door selected={true}></Door>
-      <Door></Door>
+      <div className='flex'>
+        <Door selected={true}></Door>
+        <Door></Door>
+      </div>
     </>
   )
 }
