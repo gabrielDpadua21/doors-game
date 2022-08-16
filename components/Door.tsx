@@ -1,19 +1,21 @@
 import { NextPage } from "next";
+import DoorModel from "../model/Door";
 import styles from "../styles/Door.module.css";
 
 interface Idoors {
-    selected?: boolean
+    door: DoorModel
 }
 
 const Door: NextPage<Idoors> = (props: Idoors) => {
-    const selected = props.selected ? styles.selected : '';
+    const { door } = props;
+    const selected = door.selected ? styles.selected : '';
 
     return (
         <div className={styles.area}>
             <div className={`${styles.frame} ${selected}`}>
                 <div className={styles.door}>
                     <div className={styles.number}>
-                        3
+                        {door.number}
                     </div>
                     <div className={styles.key}></div>
                     <div className={styles.handle}></div>

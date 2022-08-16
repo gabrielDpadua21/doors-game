@@ -1,14 +1,17 @@
 import type { NextPage } from 'next'
+import { useState } from 'react';
 import Door from '../components/Door';
 import Present from "../components/Present";
+import DoorModel from '../model/Door';
 
 const Home: NextPage = () => {
+  const [door, setDoor] = useState(new DoorModel(1));
+
   return (
     <>
       {/* <Present/> */}
       <div className='flex'>
-        <Door selected={true}></Door>
-        <Door></Door>
+        <Door door={door}></Door>
       </div>
     </>
   )

@@ -1,7 +1,7 @@
 export default class Door {
     private _number: number;
     private _havePresent: boolean;
-    private _seleted: boolean;
+    private _selected: boolean;
     private _open: boolean;
 
     constructor(
@@ -12,7 +12,7 @@ export default class Door {
     ) {
         this._number = number;
         this._havePresent = havePresent;
-        this._seleted = seleted;
+        this._selected = seleted;
         this._open = open;
     }
 
@@ -24,8 +24,8 @@ export default class Door {
         return this._havePresent;
     }
 
-    get seleted() {
-        return this._seleted;
+    get selected() {
+        return this._selected;
     }
 
     get open() {
@@ -33,17 +33,17 @@ export default class Door {
     }
 
     unseleted() {
-        const seleted = false;
-        return new Door(this.number, this.havePresent, seleted, this.open);
+        const selected = false;
+        return new Door(this.number, this.havePresent, selected, this.open);
     }
 
     changeSeleted() {
-        const seleted = !this.seleted;
-        return new Door(this.number, this.havePresent, seleted, this.open);
+        const selected = !this.selected;
+        return new Door(this.number, this.havePresent, selected, this.open);
     }
 
     openDoor() {
         const doorOpen = true;
-        return new Door(this.number, this.havePresent, this.seleted, doorOpen);
+        return new Door(this.number, this.havePresent, this.selected, doorOpen);
     }
 }
