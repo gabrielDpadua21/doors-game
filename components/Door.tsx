@@ -4,14 +4,17 @@ import styles from "../styles/Door.module.css";
 
 interface Idoors {
     door: DoorModel
+    onChange: (newDoor: DoorModel) => void
 }
 
 const Door: NextPage<Idoors> = (props: Idoors) => {
     const { door } = props;
     const selected = door.selected ? styles.selected : '';
 
+    const changeSeleted = e => props.onChange(door.changeSeleted())
+
     return (
-        <div className={styles.area}>
+        <div className={styles.area} onClick={changeSeleted}>
             <div className={`${styles.frame} ${selected}`}>
                 <div className={styles.door}>
                     <div className={styles.number}>

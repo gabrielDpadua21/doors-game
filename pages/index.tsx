@@ -11,7 +11,7 @@ const Home: NextPage = () => {
     <>
       {/* <Present/> */}
       <div className='flex'>
-        <Door door={door}></Door>
+        <Door door={door} onChange={newDoor => setDoor(newDoor)}></Door>
       </div>
     </>
   )
