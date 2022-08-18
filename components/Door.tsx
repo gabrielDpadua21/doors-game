@@ -9,20 +9,31 @@ interface Idoors {
 
 const Door: NextPage<Idoors> = (props: Idoors) => {
     const { door } = props;
-    const selected = door.selected ? styles.selected : '';
+    const selected = door.selected && !door.open ? styles.selected : '';
 
-    const changeSeleted = e => props.onChange(door.changeSeleted())
+    const changeSeleted = _ => props.onChange(door.changeSeleted())
+
+    const openDoor = (e) => {
+        e.stopPropagation()
+        props.onChange(door.openDoor())
+    }
+
+    const doorRender = () => {
+        return (
+            <div className={styles.door}>
+                <div className={styles.number}>
+                    {door.number}
+                </div>
+                <div className={styles.key} onClick={openDoor}></div>
+                <div className={styles.handle} onClick={openDoor}></div>
+            </div>
+        )
+    }
 
     return (
         <div className={styles.area} onClick={changeSeleted}>
             <div className={`${styles.frame} ${selected}`}>
-                <div className={styles.door}>
-                    <div className={styles.number}>
-                        {door.number}
-                    </div>
-                    <div className={styles.key}></div>
-                    <div className={styles.handle}></div>
-                </div>
+                { door.open ? false : doorRender() }
             </div>
             <div className={styles.floor}></div>
         </div>
