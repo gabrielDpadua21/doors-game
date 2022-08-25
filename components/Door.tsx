@@ -11,9 +11,9 @@ const Door: NextPage<Idoors> = (props: Idoors) => {
     const { door } = props;
     const selected = door.selected && !door.open ? styles.selected : '';
 
-    const changeSeleted = _ => props.onChange(door.changeSeleted())
+    const changeSeleted = () => props.onChange(door.changeSeleted())
 
-    const openDoor = (e) => {
+    const openDoor = (e: any) => {
         e.stopPropagation()
         props.onChange(door.openDoor())
     }
