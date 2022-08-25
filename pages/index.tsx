@@ -1,8 +1,6 @@
 import type { NextPage } from 'next'
 import { useState } from 'react';
 import Door from '../components/Door';
-import Present from "../components/Present";
-import DoorModel from '../model/Door';
 import { createDoors, updateDoors } from '../domains/doors';
 
 const Home: NextPage = () => {
@@ -10,7 +8,9 @@ const Home: NextPage = () => {
 
   const renderDoors = () => {
     return doors.map(door => {
-      return <Door key={door.number} door={door} onChange={newDoor => setDoors(updateDoors(doors, newDoor))}></Door>
+      return (
+        <Door key={door.number} door={door} onChange={newDoor => setDoors(updateDoors(doors, newDoor))}></Door>
+      )
     })
   }
 

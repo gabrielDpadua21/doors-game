@@ -32,6 +32,10 @@ export default class Door {
         return this._open;
     }
 
+    get close() {
+        return !this._open;
+    }
+
     unseleted() {
         const selected = false;
         return new Door(this.number, this.havePresent, selected, this.open);

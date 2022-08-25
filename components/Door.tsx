@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 import DoorModel from "../model/Door";
 import styles from "../styles/Door.module.css";
+import Present from "./Present";
 
 interface Idoors {
     door: DoorModel
@@ -33,7 +34,7 @@ const Door: NextPage<Idoors> = (props: Idoors) => {
     return (
         <div className={styles.area} onClick={changeSeleted}>
             <div className={`${styles.frame} ${selected}`}>
-                { door.open ? false : doorRender() }
+                { door.close ? doorRender() : door.havePresent ? <Present/> : false}
             </div>
             <div className={styles.floor}></div>
         </div>
