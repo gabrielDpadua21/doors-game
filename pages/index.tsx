@@ -3,18 +3,22 @@ import { useState } from 'react';
 import Door from '../components/Door';
 import Present from "../components/Present";
 import DoorModel from '../model/Door';
-import { createDoors } from '../domains/doors';
+import { createDoors, updateDoors } from '../domains/doors';
 
 const Home: NextPage = () => {
-  const [door, setDoor] = useState(new DoorModel(1));
+  const [doors, setDoors] = useState(createDoors(3, 1));
 
-  console.log(createDoors(3, 1));
+  const renderDoors = () => {
+    return doors.map(door => {
+      return <Door key={door.number} door={door} onChange={newDoor => setDoors(updateDoors(doors, newDoor))}></Door>
+    })
+  }
 
   return (
     <>
       {/* <Present/> */}
       <div className='flex'>
-        <Door door={door} onChange={newDoor => setDoor(newDoor)}></Door>
+        {renderDoors()}
       </div>
     </>
   )

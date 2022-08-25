@@ -8,3 +8,10 @@ export function createDoors(quantity: number, selected: number): DoorModel[] {
     });
     return doors;
 }
+
+export function updateDoors(doors: DoorModel[], newDoor: DoorModel): DoorModel[] {
+    return doors.map(door => {
+        if(door.number === newDoor.number) return newDoor;
+        return door.open ? door : door.unseleted();
+    });
+}
