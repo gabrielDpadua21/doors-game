@@ -1,4 +1,3 @@
-
 import { NextPage } from 'next';
 import { useEffect, useState } from 'react';
 import Door from '../../../components/Door';
