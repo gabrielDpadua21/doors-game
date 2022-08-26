@@ -1,0 +1,25 @@
+.home {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.home > div {
+    display: flex;
+}
+
+.start {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    flex: 1;
+    cursor: pointer;
+    transition: ease-in-out 0.2s;
+}
+
+.start:hover {
+    color: #000
+}
