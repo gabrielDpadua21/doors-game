@@ -14,16 +14,16 @@ const Game: NextPage = () => {
   const [doors, setDoors] = useState(createDoors(0, 0));
 
   useEffect(() => {
-    const doorsNumber = +router?.query?.doors;
-    const winnerNumber = +router?.query?.winner;
+    const doorsNumber = (router.query.doors && !Array.isArray(router.query.doors)) ? parseInt(router.query.doors) : 0;
+    const winnerNumber = (router.query.winner && !Array.isArray(router.query.winner)) ? parseInt(router.query.winner) : 0;
     const quantityValidDoors = doorsNumber >= 3 && doorsNumber <= 100;
     const validWinnerDoor = winnerNumber > 0 && winnerNumber <= doorsNumber;
     setValid(quantityValidDoors && validWinnerDoor);
   }, [doors])
       
   useEffect(() => {
-    const doorsNumber = +router?.query?.doors;
-    const winnerNumber = +router?.query?.winner;
+    const doorsNumber = (router.query.doors && !Array.isArray(router.query.doors)) ? parseInt(router.query.doors) : 0;
+    const winnerNumber = (router.query.winner && !Array.isArray(router.query.winner)) ? parseInt(router.query.winner) : 0;
     setDoors(createDoors(doorsNumber, winnerNumber));
   }, [router?.query])
 
