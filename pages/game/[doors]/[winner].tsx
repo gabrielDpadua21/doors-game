@@ -9,7 +9,17 @@ import { useRouter } from 'next/router';
 
 const Game: NextPage = () => {
   const router = useRouter();
+
+  const [valid, setValid] = useState(false);
   const [doors, setDoors] = useState(createDoors(0, 0));
+
+  useEffect(() => {
+    const doorsNumber = +router?.query?.doors;
+    const winnerNumber = +router?.query?.winner;
+    const quantityValidDoors = doorsNumber >= 3 && doorsNumber <= 100;
+    const validWinnerDoor = winnerNumber > 0 && winnerNumber <= doorsNumber;
+    setValid(quantityValidDoors && validWinnerDoor);
+  }, [doors])
       
   useEffect(() => {
     const doorsNumber = +router?.query?.doors;
@@ -19,7 +29,7 @@ const Game: NextPage = () => {
 
 
   const renderDoors = () => {
-    return doors.map(door => {
+    return valid && doors.map(door => {
       return (
         <Door key={door.number} door={door} onChange={newDoor => setDoors(updateDoors(doors, newDoor))}></Door>
       )
@@ -30,7 +40,7 @@ const Game: NextPage = () => {
     <>
       <div className={styles.game}>
         <div className={styles.doors}>
-            {renderDoors()}
+            { valid ? renderDoors() : <h2>Invalid values</h2>}
         </div>
         <div className={styles.buttons}>
             <Link href="/">
