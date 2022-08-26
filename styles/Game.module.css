@@ -28,6 +28,7 @@
     border: none;
     border-radius: 10px;
     transition: ease-in 0.2s;
+    cursor: pointer;
 }
 
 .buttons button:hover {
